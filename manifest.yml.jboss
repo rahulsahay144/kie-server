@@ -1,0 +1,13 @@
+---
+  applications:
+    - name: kie-server-jboss
+      memory: 2G
+      routes:
+      - route: kie-server-jboss.pcfpoc.dsglobal.org
+      path: /Users/n689716/Documents/workspace/kie-server/kie-server-jboss.war
+      buildpack: https://github.com/rahulsahay144/jboss-buildpack
+      timeout: 120
+      env:
+        SKIP_SSL_VALIDATION: true
+        log.level: DEBUG
+        JAVA_OPTS: '-Dorg.kie.server.user=kieserver -Dorg.kie.server.pwd=kieserver -Dorg.kie.server.controller.user=kieserver -Dorg.kie.server.controller.pwd=kieserver -Dorg.kie.server.id=jboss-kieserver -Dorg.kie.server.location="https://kie-server-jboss.pcfpoc.dsglobal.org/services/rest/server" -Dorg.kie.server.controller="https://kie-wb-jboss.pcfpoc.dsglobal.org/rest/controller"'

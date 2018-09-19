@@ -1,0 +1,16 @@
+---
+  applications:
+    - name: kie-server
+      memory: 2G
+      routes:
+      - route: kie-server.pcfpoc.dsglobal.org
+      path: /Users/n689716/Documents/workspace/kie-server/kie-server.war
+      buildpack: https://github.com/rahulsahay144/java-buildpack-kbsupport
+      timeout: 120
+      env:
+        SKIP_SSL_VALIDATION: true
+        log.level: DEBUG
+        JBP_CONFIG_REPOSITORY: '{default_repository_root: "http://download.pivotal.io.s3.amazonaws.com"}'
+        JBP_CONFIG_OPEN_JDK_JRE: '{jre: { version: 1.8.0_+ }}'
+        JBP_CONFIG_SPRING_AUTO_RECONFIGURATION: '{enabled: false}'
+        JBP_CONFIG_TOMCAT: '{tomcat: { version: 8.0.+ }}'

@@ -1,0 +1,13 @@
+---
+  applications:
+    - name: kie-server
+      memory: 1G
+      routes:
+      - route: kie-server.pcfpoc.dsglobal.org
+      path: /Users/n689716/Documents/workspace/kie-server/kie-server.war
+      buildpack: https://github.com/cloudfoundry/java-buildpack
+      timeout: 120
+      env:
+        SKIP_SSL_VALIDATION: true
+        JBP_CONFIG_TOMCAT: '{tomcat: {version: 7.+}, external_configuration: {version: 7.+}}'
+        log.level: DEBUG
